@@ -7,8 +7,10 @@ const imgCreate = document.createElement('img')
 imgCreate.src = '../About Me/My_Photo.jpg'
 imgCreate.style.height = '400px'
 imgCreate.style.width = '300px'
+imgCreate.style.borderRadius = '30px'
 
-document.body.style.fontFamily = "Arial, sans-serif"
+document.body.style.fontFamily = 'Arial, sans-serif'
+document.body.style.fontSize = '20px'
 document.body.style.display = 'flex'
 document.body.style.flexDirection = 'column'
 document.body.style.alignItems = 'center'
