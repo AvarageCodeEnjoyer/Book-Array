@@ -1,5 +1,6 @@
 const list = document.getElementById('list')
 
+document.body.style.fontFamily = "Arial, sans-serif"
 document.body.style.display = 'flex'
 document.body.style.flexDirection = 'column'
 document.body.style.alignItems = 'center'
@@ -24,12 +25,21 @@ for(i = 0; i < books.length; i++){
   let newImg = document.createElement('img')
   let newTitle = document.createElement('P')
   var textNode = document.createTextNode(`${books[i].title} \n By ${books[i].author}`)
-  newImg.style.height = '400px'
+  newImg.style.height = '250px'
+  newImg.style.width = '175px'
   newImg.src = books[i].img
   newTitle.appendChild(textNode)
+  newBook.style.display = 'flex'
+  newBook.style.flexDirection = 'column'
+  newBook.style.alignItems = 'center'
+  newBook.style.fontSize = '20px'
   newBook.style.listStyle = 'none'
   if(books[i].alreadyRead === true){
-    newBook.style.color = 'blue'
+    newBook.style.color = 'red'
+    console.log(`You have already read "${books[i].title}"`)
+  }
+  else{
+    console.log(`You haven't read "${books[i].title}"`)
   }
   newBook.appendChild(newImg)
   newBook.appendChild(newTitle)
