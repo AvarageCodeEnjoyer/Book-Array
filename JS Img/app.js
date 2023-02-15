@@ -1,18 +1,9 @@
 const imgContainer = document.getElementById('img-container')
-const button = document.getElementById('submit')
-const form = document.querySelector('form')
 
-let i = 0
-
-class AddPeople{
-  constructor(name, img){
-    this.name = name
-    this.img = img
-  }
-}
+/* - Comment this code to next section and uncomment that section for class - */
 
 let people = [
-  /* {
+  {
     name: 'Alan Turing',
     img: './Images/Alan_turing.jpg'  
   },
@@ -35,24 +26,58 @@ let people = [
   {
     name: 'Bill Gates',
     img: './Images/bill_gates.jpg'  
-  } */
+  }
 ]
 
-// addImage()
-
-/* body.style.display = 'flex'
-body.style.height = '100%'
-body.style.justifyContent = 'center'
-body.style.alignItems = 'center' */
-
-/* form.style.display = 'flex'
-form.style.flexDirection = 'column'
-form.style.alignItems = 'center'
-form.style.rowGap = '10px' */
-
-/* imgContainer.style.width = '1000px'
+imgContainer.style.width = '1000px'
 imgContainer.style.display = 'flex'
-imgContainer.style.flexWrap = 'wrap' */
+imgContainer.style.flexWrap = 'wrap'
+
+function addImage(){
+  for(let i = 0; i < people.length; i++){
+    let imgDiv = document.createElement('div')
+    let text = document.createTextNode(people[i].name)
+    let newImg = document.createElement('img')
+    imgDiv.classList.add('imgDiv')
+    newImg.classList.add('newImg')
+    newImg.src = people[i].img
+    imgDiv.appendChild(newImg)
+    imgDiv.appendChild(text)
+    imgContainer.appendChild(imgDiv)
+  } 
+}
+
+addImage()
+
+
+
+/* ------ Uncomment code for class with form to add pictures and titles ----- */
+
+/* let i = 0
+let people = []
+
+class AddPeople{
+  constructor(name, img){
+    this.name = name
+    this.img = img
+  }
+}
+
+const form = document.createElement('form')
+form.innerHTML = `
+  <label for="name">Name</label>
+  <input type="text" id="name">
+  <label for="img">Img URL</label>
+  <input type="text" id="img">
+  <input type="submit" id="submit" value="Add Image"></input>`
+
+form.style.display = 'flex'
+form.style.flexDirection = 'column'
+
+const formContainer = document.createElement('div')
+formContainer.appendChild(form)
+
+document.body.insertBefore(formContainer, imgContainer)
 
 form.addEventListener('submit', e => {
   e.preventDefault()
@@ -66,16 +91,14 @@ form.addEventListener('submit', e => {
 })
 
 function addImage(){
-  // for(let i = 0; i < people.length; i++){
-    let imgDiv = document.createElement('div')
-    let text = document.createTextNode(people[i].name)
-    let newImg = document.createElement('img')
-    imgDiv.classList.add('imgDiv')
-    newImg.classList.add('newImg')
-    newImg.src = people[i].img
-    imgDiv.appendChild(newImg)
-    imgDiv.appendChild(text)
-    imgContainer.appendChild(imgDiv)
-    i++
-  // } 
-}
+  let imgDiv = document.createElement('div')
+  let text = document.createTextNode(people[i].name)
+  let newImg = document.createElement('img')
+  imgDiv.classList.add('imgDiv')
+  newImg.classList.add('newImg')
+  newImg.src = people[i].img
+  imgDiv.appendChild(newImg)
+  imgDiv.appendChild(text)
+  imgContainer.appendChild(imgDiv)
+  i++
+} */
